@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: auto;
+    margin: 10mm 15mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Sembunyikan semua elemen umum di halaman */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Tampilkan area dokumen cetak (kwitansi & surat perjanjian) secara penuh */
+  #receiptPrintArea,
+  #receiptPrintArea *,
+  #agreementPrintArea,
+  #agreementPrintArea * {
+    visibility: visible !important;
+  }
+
+  /* Sembunyikan secara eksplisit tombol atau elemen bertanda no-print */
+  .no-print,
+  .no-print * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Tata letak kuitansi saat dicetak atau diekspor ke PDF */
+  #receiptPrintArea {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 24px 28px !important;
+    border: 2px solid #1f2937 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Tata letak surat perjanjian sewa saat dicetak atau diekspor ke PDF */
+  #agreementPrintArea {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hilangkan efek backdrop dan container modal */
+  .kwitansi-modal-backdrop,
+  .agreement-modal-backdrop {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .kwitansi-modal-container,
+  .agreement-modal-container {
+    position: static !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+}
